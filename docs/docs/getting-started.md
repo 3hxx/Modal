@@ -65,7 +65,11 @@ Blazored Modal uses CSS isolation. If your application is already using CSS isol
 
 The `<CascadingBlazoredModal />` component cascades an instance of the `IModalService` to all decendant components. This should be added to the root component of your application (usually `App.razor`) wrapping the Router as per the example below.
 
+For .NET 8 or later you should add `@rendermode InteractiveServer` at the top of your `Routes.razor` otherwise you might experience a null `IModalService`.
+
 ```html
+@rendermode InteractiveServer // .NET 8+
+
 <CascadingBlazoredModal>
     <Router AppAssembly="typeof(Program).Assembly">
         ...
